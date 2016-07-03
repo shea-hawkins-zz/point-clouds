@@ -1,0 +1,18 @@
+{
+  "name": "point-clouds-server",
+  "version": "1.0.0",
+  "description": "Node server for processing SLAM point clouds.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "point",
+    "clouds",
+    "slam",
+    "mapping",
+    "PCL"
+  ],
+  "author": "Shea Hawkins",
+  "license": "ISC"
+}
