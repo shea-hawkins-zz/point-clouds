@@ -4,7 +4,9 @@
   "description": "Node server for processing SLAM point clouds.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-dev": "start npm run dev-server && start node-inspector",
+    "dev-server": "set NODE_ENV=development&& nodemon --ignore dist/ --debug server.js "
   },
   "keywords": [
     "point",
@@ -14,5 +16,11 @@
     "PCL"
   ],
   "author": "Shea Hawkins",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.9.2"
+  }
 }
