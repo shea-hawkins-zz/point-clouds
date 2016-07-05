@@ -11,6 +11,14 @@ app.use('/', function (req, res, next) {
   next();
 });
 
+
+// Send client and client assets.
+app.use('/dist', express.static('./dist'));
+
+app.get('/', function(req, res, next) {
+  res.sendFile(__dirname + '/index.html');
+});
+
 app.use('/', router);
 
 app.use('/', function (req, res, next) {
