@@ -17,7 +17,7 @@ var reducerMap = {
     return Object.assign({}, prevState, { cloudLoading: false });
   },
   receiveCloud: function(prevState, data) {
-    return Object.assign({}, prevState, { pointCloud: ['I loaded!'] });
+    return Object.assign({}, prevState, { pointCloud: data });
   }
 };
 

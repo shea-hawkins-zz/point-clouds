@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import 'whatwg-fetch';
 import Header from './Header';
 import PointCloudView from './PointCloudView';
 
@@ -29,9 +30,18 @@ var mapStateToProps = function(state) {
 var mapDispatchToProps = function(dispatch) {
   return {
     getData: function() {
-        dispatch({type: 'loadingCloud'});
-        dispatch({type: 'receiveCloud'});
-        dispatch({type: 'loadedCloud'});
+      dispatch({type: 'loadingCloud'});
+      fetch('/pointCloud')
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(json) {
+          dispatch({
+            type: 'receiveCloud',
+            data: json 
+          });
+          dispatch({type: 'loadedCloud'});
+        });
     }
   };
 };
