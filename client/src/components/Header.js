@@ -6,7 +6,7 @@ export default () => {
     <h1>Point Clouds</h1>
       <nav>
         <ul>
-          <li>Scans</li>
+          <li>Scans Test2</li>
         </ul>
       </nav>
     </header>
