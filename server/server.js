@@ -11,7 +11,6 @@ app.use('/', function (req, res, next) {
   next();
 });
 
-
 // Send client and client assets.
 app.use('/dist', express.static('./dist'));
 
