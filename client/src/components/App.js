@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { arrayToMesh } from '../../lib/util';
 import 'whatwg-fetch';
 import Header from './Header';
 import PointCloudView from './PointCloudView';
@@ -14,7 +15,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        {this.props.cloudLoading ? <div>Spinner</div>: <PointCloudView/>}
+        {this.props.cloudLoading ? <div>Spinner</div>: <PointCloudView pointCloud={this.props.pointCloud} />}
       </div>
     );
   }
@@ -36,11 +37,16 @@ var mapDispatchToProps = function(dispatch) {
           return response.json();
         })
         .then(function(json) {
+          return arrayToMesh(json);
+        }).then(function(pointCloud) {
+          // Should insert into database, then
+          // inform redux of the ID.
           dispatch({
             type: 'receiveCloud',
-            data: json 
+            data: pointCloud
           });
           dispatch({type: 'loadedCloud'});
+
         });
     }
   };
