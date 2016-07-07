@@ -6,23 +6,19 @@ class PointCloudView extends React.Component {
    var scene = new THREE.Scene();
    var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
    var renderer = new THREE.WebGLRenderer();
-   renderer.setSize( window.innerWidth, window.innerHeight );
+   renderer.setSize( window.innerWidth * .8, window.innerHeight *.8);
    document.getElementById("threeWindow").appendChild( renderer.domElement );
-
-   var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-   var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-   var cube = new THREE.Mesh( geometry, material );
-   scene.add( cube );
 
    scene.add(this.props.pointCloud);
 
-   camera.position.z = 307; // camera is pointin galong the z axis
-   camera.position.x = -253;
-   camera.position.y = 48;
+   // Connected position-by-position to other vec
+   camera.position.x = -90;
+   camera.position.y = 40;
+   camera.position.z = 160; // camera is pointin galong the z axis
    var render = function () {
-     requestAnimationFrame( render );
-
+     camera.lookAt(new THREE.Vector3(-95, 35, 390));
      renderer.render(scene, camera);
+     requestAnimationFrame( render );
    };
    render();
  }
