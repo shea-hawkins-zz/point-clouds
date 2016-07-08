@@ -13,9 +13,11 @@ class App extends React.Component {
   render() {
     console.log(this.props);
     return (
-      <div>
+      <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <Header />
-        {this.props.cloudLoading ? <div>Spinner</div>: <PointCloudView pointCloud={this.props.pointCloud} />}
+        <div className="mdl-layout__content">
+          {this.props.cloudLoading ? <div>Spinner</div> : <PointCloudView pointCloud={this.props.pointCloud} />}
+        </div>
       </div>
     );
   }
