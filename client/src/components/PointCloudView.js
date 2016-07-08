@@ -8,7 +8,6 @@ class PointCloudView extends React.Component {
    var renderer = new THREE.WebGLRenderer();
    renderer.setSize( window.innerWidth * .8, window.innerHeight *.8);
    document.getElementById("threeWindow").appendChild( renderer.domElement );
-
    scene.add(this.props.pointCloud);
 
    // Connected position-by-position to other vec
@@ -25,9 +24,7 @@ class PointCloudView extends React.Component {
 
  render() {
    return (
-     <div>
-       <div id="threeWindow" />
-     </div>
+     <div id="threeWindow" />
    );
  }
 };
