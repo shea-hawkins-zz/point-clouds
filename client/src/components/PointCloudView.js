@@ -6,8 +6,10 @@ class PointCloudView extends React.Component {
    var scene = new THREE.Scene();
    var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
    var renderer = new THREE.WebGLRenderer();
-   renderer.setSize( window.innerWidth * .8, window.innerHeight *.8);
-   document.getElementById("threeWindow").appendChild( renderer.domElement );
+   var threeWindow = document.getElementById('threeWindow');
+   console.log(threeWindow.offsetWidth, threeWindow.offsetHeight)
+   renderer.setSize( threeWindow.offsetWidth, threeWindow.offsetHeight || 30);
+   threeWindow.appendChild( renderer.domElement );
    scene.add(this.props.pointCloud);
 
    // Connected position-by-position to other vec
@@ -24,7 +26,7 @@ class PointCloudView extends React.Component {
 
  render() {
    return (
-     <div id="threeWindow" />
+     <div id="threeWindow" className="media" />
    );
  }
 };
