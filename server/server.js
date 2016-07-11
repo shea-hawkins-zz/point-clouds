@@ -1,8 +1,9 @@
 var express = require('express');
 var router = require('./router');
+var addon = require('./cpp/build/Release/hello');
 var app = express();
 
-
+console.log(addon.hello());
 // Configuration details
 var port = 3000;
 
